@@ -1,0 +1,53 @@
+// Obtain a bearer token
+
+  // The request must be a HTTP POST request.
+  // The request must include an Authorization header with the value of Basic .
+  // The request must include a Content-Type header with the value of application/x-www-form-urlencoded;charset=UTF-8.
+  // The body of the request must be grant_type=client_credentials.
+
+  var CLIENT_ID = 'c2a521021b854fd520237ae333b017159308d4322acd9f4f2b';
+  var CLIENT_SECRET = 'bcfc99063d2e45d48eaac2f7b672843084ef545dd975786e49';
+  var bearer_url = 'https://c6ezh295.caspio.com/oauth/token';
+  var options = {
+    "method": "POST",
+    "headers": {
+      "Content-Type": "text/plain;charset=UTF-8"
+    },
+    "payload": {
+      "grant_type": "client_credentials",
+      "client_id": "c2a521021b854fd520237ae333b017159308d4322acd9f4f2b",
+      "client_secret": "bcfc99063d2e45d48eaac2f7b672843084ef545dd975786e49"},
+  }
+
+function getAccessToken() {
+
+  var response = UrlFetchApp.fetch(bearer_url, options);
+  var data = JSON.parse(response.getContentText());
+
+  // Store the Access Token
+  if (data.access_token) {
+    PropertiesService.getUserProperties()
+      .setProperty('CASPIO_ACCESS_TOKEN', data.access_token);
+  }
+
+  return data.access_token;
+};
+
+function getCaspioTables() {
+  var userprop = PropertiesService.getUserProperties();
+  var APItoken = userprop.getProperty('CASPIO_ACCESS_TOKEN'); 
+  Logger.log(APItoken);
+  var tables_url = 'https://c6ezh295.caspio.com/rest/v2/tables';
+  var options = {
+    "method": "GET",
+    "headers": {
+      "Content-Type": "application/json",
+      "Accept": "application/json",
+      "Authorization": "Bearer "+ APItoken,
+    }};
+
+ var response = UrlFetchApp.fetch(tables_url, options);
+ var data = JSON.parse(response.getContentText());
+ Logger.log(data);
+ }
+

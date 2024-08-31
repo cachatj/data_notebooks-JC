@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"name": "tutorial",
+			"path": "tutorial"
+		},
+		{
+			"name": "lux_platform",
+			"path": "."
+		}
+	]
+}

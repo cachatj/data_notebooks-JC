@@ -1,0 +1,31 @@
+## installing airflow version specific ##
+
+assumes astro CLI already installed via homebrew, and conda env.
+
+0) new conda env, python version selected
+
+1) pip install apache-airflow==2.3.1 --constraint "https://raw.githubusercontent.com/apache/airflow/constraints-2.3.1/constraints-3.8.txt"
+
+1a) conda install grpcio
+
+1b) pip install apache-airflow-providers-google
+
+2) make airflow directory, then from terminal run: astro dev init
+
+3) astro dev init
+
+3b) modify dockerfile to reflect right airflow image: quay.io/astronomer/ap-airflow:2.3.4
+	repo is @ https://github.com/astronomer/ap-airflow
+
+4a) make sure docker desktop is running
+
+4) astro dev stop
+
+
+Astro Runtime	Apache Airflow version
+4	2.2
+5	2.3
+6	2.4
+7	2.5
+
+

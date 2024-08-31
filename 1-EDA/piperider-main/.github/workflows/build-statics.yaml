@@ -1,0 +1,47 @@
+
+name: Node.js - Build & Auto-Commit to CLI data/report/**
+
+on:
+  pull_request:
+    types:
+      - closed
+      # Trigger when PR is closed
+    paths:
+      - "static_report/**"
+      - "piperider_cli/**"
+      # Trigger when diffs detected in cli and report sources
+    branches:
+      - main
+      # Only PR target is `main`
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./static_report
+
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16
+        cache: 'yarn'
+        cache-dependency-path: static_report/yarn.lock
+
+    - name: Install Dependencies
+      run: yarn install --immutable
+
+    - name: Build Apps
+      run: npm run build
+
+    - name: Pull Remote Changes (before AC)
+      run: git pull origin main
+
+    - uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: AUTO-COMMIT - build report statics to CLI data/report
+        branch: ${{ github.base_ref }}
+        # Auto-commits to target merge branch

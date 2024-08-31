@@ -1,0 +1,42 @@
+# install JAVA_HOME SDK
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-11.0.16.1.jdk/Contents/Home"
+echo $JAVA_HOME #to check
+
+
+#File path to the Spark installation directory:
+
+~/jcachat/hadoop/spark-3.0.1-bin-hadoop3.2
+
+------------------------------------------------
+
+#configure passphraseless SSH
+$$ ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
+cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+chmod 0600 ~/.ssh/authorized_keys
+
+Created directory '/Users/jcachat/.ssh'.
+Your identification has been saved in /Users/jcachat/.ssh/id_rsa
+Your public key has been saved in /Users/jcachat/.ssh/id_rsa.pub
+The key fingerprint is:
+SHA256:7dvtfHOoyiuPTsAxkwOKGapnn6rDv6Ucz6Eb+CVveA4 jcachat@JCMacMini.local
+The key's randomart image is:
++---[RSA 3072]----+
+|.   .            |
+|.+ . . .         |
+|+ .   *          |
+|.    . = .       |
+|. o   o S .      |
+| o.. . . .       |
+|.. E++  . .    . |
+|..oo&o...o o o..o|
+|.ooO*= .oo*ooo+.o|
++----[SHA256]-----+
+
+------------------------------------------------
+
+ssh JCMacMini.local
+
+------------------------------------------------
+
+
+

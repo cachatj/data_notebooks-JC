@@ -1,0 +1,33 @@
+timeseries Tutorial Links
+
+# working w time series in pandas
+
+	https://mybinder.org/v2/gh/goodboychan/goodboychan.github.io/main?filepath=_notebooks%2F2020-06-09-02-Working-with-Time-Series-in-Pandas.ipynb
+
+
+# EDA of multivariate time series data with pandas 
+	
+	https://mybinder.org/v2/gh/fkromer/exploratory-data-analysis-of-sensor-data-with-pandas.git/HEAD
+
+# Predicting Stock Prices with Prophet
+	https://gardnmi.github.io/blog/jupyter,/prophet,/stock,/python/2020/10/20/stock-price-forecast-with-prophet.html
+
+
+# prophet Quick Start
+	https://facebook.github.io/prophet/docs/quick_start.html#python-api
+
+# time series forecasting w VertexAI & BigQueryML
+	https://codelabs.developers.google.com/codelabs/time-series-forecasting-with-cloud-ai-platform#0
+
+
+# timeseries concepts - kaggle book
+	https://www.kaggle.com/code/casper6290/timeseries-concepts-1
+
+
+# sktime examples - forecasting & classifying
+
+	https://mybinder.org/v2/gh/alan-turing-institute/sktime/main?filepath=examples
+
+# tsfresh - time series features engineering
+
+	https://mybinder.org/v2/gh/blue-yonder/tsfresh/main?filepath=notebooks
